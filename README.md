@@ -1,1 +1,1 @@
-A simple command-line application.
+# Regular Dicers Bot v2: Electric Boogaloo
