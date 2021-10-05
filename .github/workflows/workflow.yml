@@ -60,9 +60,9 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build the tagged Docker image
-        run: docker build -t ghcr.io/regular_dicers_bot/electric_boogaloo:${GITHUB_SHA} --build-arg "build=${GITHUB_SHA}" .
+        run: docker build -t ghcr.io/woog-life/rdb2_electric_boogaloo:${GITHUB_SHA} --build-arg "build=${GITHUB_SHA}" .
       - name: Push the tagged Docker image
-        run: docker push ghcr.io/regular_dicers_bot/electric_boogaloo:${GITHUB_SHA}
+        run: docker push ghcr.io/woog-life/rdb2_electric_boogaloo:${GITHUB_SHA}
 
   deploy:
     runs-on: ubuntu-latest
