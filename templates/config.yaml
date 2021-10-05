@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: wooglife
+  name: rdb-config
+data:
+  TELEGRAM_CHAT_ID: "{{ .Values.telegram.chatId }}"

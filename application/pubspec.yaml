@@ -1,0 +1,19 @@
+name: application
+description: A starting point for Dart libraries or applications.
+version: 0.1.0
+# homepage: https://www.example.com
+
+publish_to: none
+
+environment:
+  sdk: '>=2.14.0 <3.0.0'
+
+dependencies:
+  domain:
+    path: ../domain
+  logging: ^1.0.0
+
+
+dev_dependencies:
+  common_dev:
+    path: ../common_dev
