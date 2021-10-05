@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: rdb-update-handler
-          image: {{ .Values.api.image }}
+          image: {{ .Values.image }}
           args:
             - handle_updates
           imagePullPolicy: IfNotPresent
