@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: wooglife
+  namespace: stammgaeste
   name: rdb-update-handler
   labels:
     app: rdb-update-handler
