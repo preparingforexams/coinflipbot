@@ -11,6 +11,8 @@ environment:
 dependencies:
   application:
     path: ../application
+  domain:
+    path: ../domain
   logging:
 
 dev_dependencies:

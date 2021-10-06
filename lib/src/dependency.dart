@@ -2,6 +2,7 @@ import 'package:application/port.dart' as port;
 import 'package:application/repository.dart' as repository;
 import 'package:application/use_case.dart' as use_case;
 import 'package:get_it/get_it.dart';
+import 'package:infrastructure/adapter/message_sender/telegram.dart';
 import 'package:infrastructure/adapter/poll_publisher/telegram.dart';
 import 'package:infrastructure/adapter/update_receiver/long_poll_telegram.dart';
 import 'package:infrastructure/respository/user/postgres.dart';
@@ -20,6 +21,9 @@ GetIt _configureDependencies() {
   );
 
   // ports
+  getIt.registerFactory<port.MessageSender>(
+    () => TelegramMessageSender(),
+  );
   getIt.registerFactory<port.PollPublisher>(
     () => TelegramPollPublisher(),
   );
@@ -28,6 +32,11 @@ GetIt _configureDependencies() {
   );
 
   // use cases
+  getIt.registerFactory(
+    () => use_case.EchoMessage(
+      getIt<port.MessageSender>(),
+    ),
+  );
   getIt.registerFactory(
     () => use_case.SendAttendancePoll(
       getIt<port.PollPublisher>(),
