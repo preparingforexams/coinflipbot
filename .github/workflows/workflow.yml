@@ -60,9 +60,9 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build the tagged Docker image
-        run: docker build -t ghcr.io/woog-life/rdb2_electric_boogaloo:${GITHUB_SHA} --build-arg "build=${GITHUB_SHA}" .
+        run: docker build -t ghcr.io/OpenAlcoholics/rdb2_electric_boogaloo:${GITHUB_SHA} --build-arg "build=${GITHUB_SHA}" .
       - name: Push the tagged Docker image
-        run: docker push ghcr.io/woog-life/rdb2_electric_boogaloo:${GITHUB_SHA}
+        run: docker push ghcr.io/OpenAlcoholics/rdb2_electric_boogaloo:${GITHUB_SHA}
 
   deploy:
     runs-on: ubuntu-latest
@@ -73,5 +73,5 @@ jobs:
         run: "envsubst < values.yaml > values_sub.yaml && mv values_sub.yaml values.yaml"
       - uses: WyriHaximus/github-action-helm3@v2
         with:
-          exec: helm upgrade regular-dicers-bot . --install --namespace=wooglife
+          exec: helm upgrade regular-dicers-bot . --install --namespace=stammgaeste
           kubeconfig: '${{ secrets.KUBECONFIG_RAW }}'
