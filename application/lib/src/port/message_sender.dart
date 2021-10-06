@@ -1,7 +1,7 @@
 abstract class MessageSender {
   Future<void> sendMessage({
-    required String chatId,
+    required int chatId,
     required String text,
-    String? replyToMessageId,
+    int? replyToMessageId,
   });
 }

@@ -82,7 +82,7 @@ class HttpTelegramBot implements TelegramBot {
 
   @override
   Future<message_model.Message> sendMessage(
-    String chatId,
+    int chatId,
     String message,
   ) async {
     final response = await _post(
@@ -98,7 +98,7 @@ class HttpTelegramBot implements TelegramBot {
 
   @override
   Future<message_model.Message> sendPoll(
-    String chatId,
+    int chatId,
     String question,
     List<String> options, {
     bool isAnonymous = false,

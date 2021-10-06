@@ -1,5 +1,4 @@
-import 'package:telebot/src/util.dart';
-
+import '../util.dart';
 import 'chat.dart' as chat_model;
 import 'poll.dart' as poll_model;
 import 'user.dart' as user_model;

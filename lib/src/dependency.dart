@@ -47,6 +47,7 @@ GetIt _configureDependencies() {
   getIt.registerFactory(
     () => UpdateHandler(
       getIt<port.UpdateReceiver>(),
+      echoMessage: getIt<use_case.EchoMessage>(),
     ),
   );
 

@@ -18,10 +18,10 @@ abstract class TelegramBot {
     Duration timeout = const Duration(seconds: 10),
   });
 
-  Future<Message> sendMessage(String chatId, String message);
+  Future<Message> sendMessage(int chatId, String message);
 
   Future<Message> sendPoll(
-    String chatId,
+    int chatId,
     String question,
     List<String> options, {
     bool isAnonymous = false,

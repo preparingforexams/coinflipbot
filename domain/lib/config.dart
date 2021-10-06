@@ -4,7 +4,7 @@ class TelegramConfig {
   TelegramConfig._();
 
   final String apiKey = _resolve('TELEGRAM_API_KEY');
-  final String chatId = _resolve('TELEGRAM_CHAT_ID');
+  final int chatId = _resolve('TELEGRAM_CHAT_ID');
 }
 
 class Config {
@@ -22,6 +22,8 @@ T _resolve<T>(String key) {
   }
   if (T == String) {
     return value as T;
+  } else if (T == int) {
+    return int.parse(value) as T;
   } else {
     throw ArgumentError.value(
       T.runtimeType.toString(),
