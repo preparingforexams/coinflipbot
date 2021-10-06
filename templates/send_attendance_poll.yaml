@@ -4,12 +4,14 @@ metadata:
   name: rdb-attendance
   namespace: stammgaeste
 spec:
-  #schedule: CRON_TZ=CET 0 16 * * 1
-  schedule: 30 17 * * *
+  # in k8s 1.22: schedule: CRON_TZ=CET 0 16 * * 1
+  # schedule: 0 15,16 * * 1
+  schedule: 32 17 * * *
   jobTemplate:
     spec:
       template:
         spec:
+          restartPolicy: OnFailure
           containers:
           - name: app
             image: {{ .Values.image }}
