@@ -1,47 +1,6 @@
-import 'package:meta/meta.dart';
-
-@immutable
-class PollOptions {
-  final bool isAnonymous;
-
-  final bool isMultipleChoice;
-
-  const PollOptions({
-    this.isAnonymous = false,
-    this.isMultipleChoice = false,
-  });
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is PollOptions &&
-          runtimeType == other.runtimeType &&
-          isAnonymous == other.isAnonymous &&
-          isMultipleChoice == other.isMultipleChoice;
-
-  @override
-  int get hashCode => isAnonymous.hashCode ^ isMultipleChoice.hashCode;
-
-  @override
-  String toString() {
-    return 'PollOptions{isAnonymous: $isAnonymous,'
-        ' isMultipleChoice: $isMultipleChoice}';
-  }
-}
-
-@immutable
-class Poll {
-  final String title;
-  final List<String> choices;
-  final PollOptions options;
-
-  Poll({
-    required this.title,
-    required this.choices,
-    this.options = const PollOptions(),
-  });
-}
+import 'package:domain/model.dart' as model;
+import 'package:domain/outbound_model.dart' as outbound_model;
 
 abstract class PollPublisher {
-  Future<String> publish(Poll poll);
+  Future<model.Message> publish(outbound_model.Poll poll);
 }
