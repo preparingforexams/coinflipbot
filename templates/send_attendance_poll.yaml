@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: rdb-attendance
+  namespace: stammgaeste
+spec:
+  #schedule: CRON_TZ=CET 0 16 * * 1
+  schedule: CRON_TZ=CET 20 18 * * *
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: app
+            image: {{ .Values.image }}
+            args:
+              - send_attendance_poll
+            resources:
+              limits:
+                cpu: 50m
+              requests:
+                cpu: 5m
+                memory: 32Mi
+            envFrom:
+              - configMapRef:
+                  name: rdb-config
+              - secretRef:
+                  name: rdb-secrets

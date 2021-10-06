@@ -1,4 +1,5 @@
 image: ghcr.io/openalcoholics/rdb2_electric_boogaloo:${GITHUB_SHA}
 telegram:
-  chatId: "-1001491640081"
+  chatId: "133399998"
+  #chatId: "-1001491640081"
   apiKey: ${TELEGRAM_TOKEN}

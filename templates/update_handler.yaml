@@ -22,7 +22,7 @@ spec:
         app: rdb-update-handler
     spec:
       containers:
-        - name: rdb-update-handler
+        - name: app
           image: {{ .Values.image }}
           args:
             - handle_updates
