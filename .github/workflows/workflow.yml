@@ -72,7 +72,7 @@ jobs:
       - name: Substitute environment variables in values.yaml
         run: "envsubst < values.yaml > values_sub.yaml && mv values_sub.yaml values.yaml"
         env:
-          TELEGRAM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
       - uses: WyriHaximus/github-action-helm3@v2
         with:
           exec: helm upgrade regular-dicers-bot . --install --namespace=stammgaeste
