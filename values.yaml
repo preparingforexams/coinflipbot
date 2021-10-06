@@ -1,3 +1,3 @@
-image: ghcr.io/OpenAlcoholics/rdb2_electric_boogaloo:${GITHUB_SHA}
+image: ghcr.io/openalcoholics/rdb2_electric_boogaloo:${GITHUB_SHA}
 telegram:
   chatId: "-1001491640081"
