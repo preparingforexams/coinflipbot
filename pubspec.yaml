@@ -15,6 +15,7 @@ dependencies:
     path: infrastructure
   interface:
     path: interface
+  logging: ^1.0.0
 
 dev_dependencies:
   common_dev:

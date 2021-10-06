@@ -12,6 +12,7 @@ dependencies:
   application:
     path: ../application
   http: ^0.13.0
+  logging:
   postgres: ^2.0.0
   telebot:
     path: ../telebot

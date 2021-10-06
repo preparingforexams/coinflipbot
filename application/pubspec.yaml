@@ -11,7 +11,7 @@ environment:
 dependencies:
   domain:
     path: ../domain
-  logging: ^1.0.0
+  logging:
 
 
 dev_dependencies:
