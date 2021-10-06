@@ -26,7 +26,12 @@ spec:
           image: {{ .Values.image }}
           args:
             - handle_updates
-          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              cpu: 50m
+            requests:
+              cpu: 5m
+              memory: 32Mi
           envFrom:
             - configMapRef:
                 name: rdb-config
