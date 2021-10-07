@@ -37,8 +37,8 @@ class SendAttendancePoll {
     // TODO save poll ID somewhere
     final message = await _pollPublisher.publish(
       outbound_model.RegularPoll(
-        title: 'TODO',
-        choices: ['TODO', 'TODO2'],
+        title: 'Are you annoyed yet?',
+        choices: ['Yes', 'No'],
       ),
     );
   }

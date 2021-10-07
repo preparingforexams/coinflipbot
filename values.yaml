@@ -4,4 +4,4 @@ telegram:
   #chatId: "-1001491640081"
   apiKey: ${TELEGRAM_TOKEN}
 schedule:
-  attendancePollHour: 16
+  attendancePollHour: 17
