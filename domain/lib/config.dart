@@ -1,5 +1,11 @@
 import 'dart:io';
 
+class Schedule {
+  Schedule._();
+
+  final int attendanceHour = _resolve("SCHEDULE_ATTENDANCE_HOUR", 16);
+}
+
 class TelegramConfig {
   TelegramConfig._();
 
@@ -12,13 +18,18 @@ class Config {
 
   static final String chatId = _resolve('CHAT_ID');
 
+  static final Schedule schedule = Schedule._();
   static final TelegramConfig telegram = TelegramConfig._();
 }
 
-T _resolve<T>(String key) {
+T _resolve<T>(String key, [T? defaultValue]) {
   final value = Platform.environment[key];
-  if (value == null) {
-    throw StateError('Missing environment variable: $key');
+  if (value == null || value.isEmpty) {
+    if (defaultValue != null) {
+      return defaultValue;
+    } else {
+      throw StateError('Missing environment variable: $key');
+    }
   }
   if (T == String) {
     return value as T;

@@ -3,3 +3,5 @@ telegram:
   chatId: "133399998"
   #chatId: "-1001491640081"
   apiKey: ${TELEGRAM_TOKEN}
+schedule:
+  attendancePollHour: 16
