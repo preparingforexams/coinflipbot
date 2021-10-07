@@ -8,6 +8,7 @@ spec:
   schedule: "0 14,15 * * *"
   jobTemplate:
     spec:
+      backoffLimit: 8
       template:
         spec:
           restartPolicy: OnFailure
