@@ -23,13 +23,19 @@ model.Update update(telegram.Update update) {
 }
 
 model.Message message(telegram.Message message) {
-  final text = message.text;
-  if (text != null) {
+  if (message.text != null) {
     return model.TextMessage(
       id: message.id,
       date: message.date,
       chat: chat(message.chat),
-      text: text,
+      text: message.text!,
+    );
+  } else if (message.poll != null) {
+    return model.PollMessage(
+      id: message.id,
+      date: message.date,
+      chat: chat(message.chat),
+      poll: poll(message.poll!),
     );
   } else {
     throw DeserializationException('Unknown message type');
@@ -39,5 +45,24 @@ model.Message message(telegram.Message message) {
 model.Chat chat(telegram.Chat chat) {
   return model.Chat(
     id: chat.id,
+  );
+}
+
+model.Poll poll(telegram.Poll poll) {
+  return model.Poll(
+    id: poll.id,
+    title: poll.question,
+    choices: [for (final option in poll.options) pollChoice(option)],
+    totalVotes: poll.totalVoterCount,
+    isClosed: poll.isClosed,
+    isAnonymous: poll.isAnonymous,
+    isMultipleChoice: poll.isMultipleChoice,
+  );
+}
+
+model.PollChoice pollChoice(telegram.PollOption option) {
+  return model.PollChoice(
+    text: option.text,
+    votes: option.voterCount,
   );
 }
