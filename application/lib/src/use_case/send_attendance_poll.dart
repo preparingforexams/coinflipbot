@@ -1,7 +1,8 @@
 import 'package:application/port.dart' as port;
 import 'package:domain/outbound_model.dart' as outbound_model;
 import 'package:logging/logging.dart';
-import 'package:timezone/standalone.dart' as tz;
+import 'package:timezone/data/latest_10y.dart' as tz_data;
+import 'package:timezone/timezone.dart' as tz;
 
 class SendAttendancePoll {
   final Logger _log = Logger('SendAttendancePoll');
@@ -10,7 +11,7 @@ class SendAttendancePoll {
   SendAttendancePoll(this._pollPublisher);
 
   Future<bool> _isHammerTime() async {
-    await tz.initializeTimeZone();
+    tz_data.initializeTimeZones();
     final berlin = tz.getLocation('Europe/Berlin');
 
     final now = tz.TZDateTime.now(berlin);
