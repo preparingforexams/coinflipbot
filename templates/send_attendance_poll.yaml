@@ -4,9 +4,8 @@ metadata:
   name: rdb-attendance
   namespace: stammgaeste
 spec:
-  # in k8s 1.22: schedule: CRON_TZ=CET 0 16 * * 1
-  # schedule: 0 15,16 * * 1
-  schedule: 32 17 * * *
+  # in k8s 1.22: schedule: "CRON_TZ=CET 0 16 * * 1"
+  schedule: "0 14,15 * * 1"
   jobTemplate:
     spec:
       template:
