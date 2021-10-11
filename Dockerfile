@@ -5,6 +5,8 @@ WORKDIR /app
 COPY . .
 RUN pub get
 
+RUN make generate_all
+
 RUN dart compile exe bin/main.dart -o app
 
 FROM scratch
