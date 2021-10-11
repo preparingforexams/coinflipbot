@@ -1,5 +1,7 @@
 FROM dart:2.14 AS builder
 
+RUN apt-get update && apt-get install make && apt-get clean
+
 WORKDIR /app
 
 COPY . .
