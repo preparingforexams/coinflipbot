@@ -1,10 +1,12 @@
 import 'package:application/port.dart' as port;
 import 'package:domain/config.dart';
 import 'package:domain/outbound_model.dart' as outbound_model;
+import 'package:injectable/injectable.dart';
 import 'package:logging/logging.dart';
 import 'package:timezone/data/latest_10y.dart' as tz_data;
 import 'package:timezone/timezone.dart' as tz;
 
+@injectable
 class SendAttendancePoll {
   final Logger _log = Logger('SendAttendancePoll');
   final port.PollPublisher _pollPublisher;

@@ -1,9 +1,13 @@
-import 'package:application/repository.dart';
-import 'package:domain/model.dart';
+import 'package:application/repository.dart' as repository;
+import 'package:domain/model.dart' as model;
+import 'package:injectable/injectable.dart';
 
-class PostgresUserRepository implements UserRepository {
+@Injectable(
+  as: repository.UserRepository,
+)
+class PostgresUserRepository implements repository.UserRepository {
   @override
-  Future<User> findById(String id) async {
+  Future<model.User> findById(String id) async {
     // TODO: implement findById
     throw UnimplementedError();
   }

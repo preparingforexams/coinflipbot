@@ -3,8 +3,12 @@ import 'package:domain/config.dart';
 import 'package:domain/model.dart' as model;
 import 'package:domain/outbound_model.dart' as outbound_model;
 import 'package:infrastructure/translation/deserialize.dart' as deserialize;
+import 'package:injectable/injectable.dart';
 import 'package:telebot/telebot.dart' as telegram;
 
+@Injectable(
+  as: port.PollPublisher,
+)
 class TelegramPollPublisher implements port.PollPublisher {
   @override
   Future<model.Message> publish(outbound_model.Poll poll) async {

@@ -1,7 +1,11 @@
 import 'package:application/port.dart' as port;
 import 'package:domain/config.dart';
+import 'package:injectable/injectable.dart';
 import 'package:telebot/telebot.dart';
 
+@Injectable(
+  as: port.MessageSender,
+)
 class TelegramMessageSender implements port.MessageSender {
   @override
   Future<void> sendMessage({

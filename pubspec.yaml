@@ -18,5 +18,10 @@ dependencies:
   logging: ^1.0.0
 
 dev_dependencies:
+  build_runner: ^2.0.0
   common_dev:
     path: common_dev
+
+  # Added for version convergence, though not needed for root-project
+  injectable: ^1.0.0
+  injectable_generator: ^1.0.0

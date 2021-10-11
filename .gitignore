@@ -8,3 +8,6 @@ build/
 
 # IntelliJ IDEA
 .idea/
+
+# Generated files
+*.config.dart

@@ -4,9 +4,13 @@ import 'package:application/port.dart' as port;
 import 'package:domain/config.dart';
 import 'package:domain/model.dart' as model;
 import 'package:infrastructure/translation/deserialize.dart' as deserialize;
+import 'package:injectable/injectable.dart';
 import 'package:logging/logging.dart';
 import 'package:telebot/telebot.dart' as telegram;
 
+@Injectable(
+  as: port.UpdateReceiver,
+)
 class LongPollTelegramUpdateReceiver implements port.UpdateReceiver {
   final Logger _log = Logger('LongPollTelegramUpdateReceiver');
   int? _lastUpdateId;
