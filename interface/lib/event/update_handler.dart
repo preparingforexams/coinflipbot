@@ -1,8 +1,10 @@
 import 'package:application/port.dart' as port;
 import 'package:application/use_case.dart' as use_case;
 import 'package:domain/model.dart' as model;
+import 'package:injectable/injectable.dart';
 import 'package:logging/logging.dart';
 
+@injectable
 class UpdateHandler {
   final Logger log = Logger('UpdateHandler');
   final port.UpdateReceiver _receiver;
