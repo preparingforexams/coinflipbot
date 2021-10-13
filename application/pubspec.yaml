@@ -13,7 +13,6 @@ dependencies:
     path: ../domain
   injectable:
   logging:
-  timezone: ^0.8.0
 
 
 dev_dependencies:
