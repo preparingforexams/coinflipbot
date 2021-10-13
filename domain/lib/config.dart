@@ -1,11 +1,5 @@
 import 'dart:io';
 
-class Schedule {
-  Schedule._();
-
-  final int attendanceHour = _resolve("SCHEDULE_ATTENDANCE_HOUR", 16);
-}
-
 class TelegramConfig {
   TelegramConfig._();
 
@@ -18,7 +12,6 @@ class Config {
 
   static final String chatId = _resolve('CHAT_ID');
 
-  static final Schedule schedule = Schedule._();
   static final TelegramConfig telegram = TelegramConfig._();
 }
 

@@ -5,4 +5,3 @@ metadata:
   name: rdb-config
 data:
   TELEGRAM_CHAT_ID: "{{ .Values.telegram.chatId }}"
-  SCHEDULE_ATTENDANCE_HOUR: "{{ .Values.schedule.attendancePollHour }}"
