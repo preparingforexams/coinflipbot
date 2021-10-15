@@ -60,9 +60,9 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build the tagged Docker image
-        run: docker build -t ghcr.io/openalcoholics/rdb2_electric_boogaloo:${GITHUB_SHA} --build-arg "build=${GITHUB_SHA}" .
+        run: docker build -t ghcr.io/openalcoholics/coinflip:${GITHUB_SHA} --build-arg "build=${GITHUB_SHA}" .
       - name: Push the tagged Docker image
-        run: docker push ghcr.io/openalcoholics/rdb2_electric_boogaloo:${GITHUB_SHA}
+        run: docker push ghcr.io/openalcoholics/coinflip:${GITHUB_SHA}
 
   deploy:
     runs-on: ubuntu-latest
@@ -75,5 +75,5 @@ jobs:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
       - uses: WyriHaximus/github-action-helm3@v2
         with:
-          exec: helm upgrade regular-dicers-bot . --install --namespace=stammgaeste
+          exec: helm upgrade coinflipper . --install --namespace=stammgaeste
           kubeconfig: '${{ secrets.KUBECONFIG_RAW }}'

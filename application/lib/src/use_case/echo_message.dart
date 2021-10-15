@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:application/port.dart' as port;
 import 'package:domain/model.dart' as model;
 import 'package:injectable/injectable.dart';
@@ -12,11 +14,15 @@ class EchoMessage {
 
   Future<void> call(model.Message message) async {
     if (message is model.TextMessage) {
-      _messageSender.sendMessage(
-        chatId: message.chat.id,
-        text: message.text,
-        replyToMessageId: message.id,
-      );
+      if (message.text.startsWith('/flip')) {
+        final random = Random();
+        final result = random.nextBool() ? "Heads" : "Tails";
+        _messageSender.sendMessage(
+          chatId: message.chat.id,
+          text: "The results are in and it's $result",
+          replyToMessageId: message.id,
+        );
+      }
     } else {
       log.warning('Dropping unknown message type: ${message.runtimeType}');
     }
