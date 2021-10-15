@@ -84,12 +84,14 @@ class HttpTelegramBot implements TelegramBot {
   Future<message_model.Message> sendMessage(
     int chatId,
     String message,
+    int replyToMessageId,
   ) async {
     final response = await _post(
       'sendMessage',
       {
         'chat_id': chatId,
         'text': message,
+        'reply_to_message_id': replyToMessageId,
       },
     );
 

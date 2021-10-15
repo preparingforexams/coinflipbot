@@ -14,10 +14,10 @@ class TelegramMessageSender implements port.MessageSender {
     int? replyToMessageId,
   }) async {
     final bot = TelegramBot(Config.telegram.apiKey);
-    // TODO replyToMessageId is ignored
     await bot.sendMessage(
       chatId,
       text,
+      replyToMessageId!,
     );
   }
 }
