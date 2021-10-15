@@ -2,10 +2,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: stammgaeste
-  name: rdb-update-handler
+  namespace: telegram-bot
+  name: coin-update-handler
   labels:
-    app: rdb-update-handler
+    app: coin-update-handler
 spec:
   revisionHistoryLimit: 1
   replicas: 1
@@ -15,11 +15,11 @@ spec:
       maxUnavailable: 1
   selector:
     matchLabels:
-      app: rdb-update-handler
+      app: coin-update-handler
   template:
     metadata:
       labels:
-        app: rdb-update-handler
+        app: coin-update-handler
     spec:
       containers:
         - name: app
@@ -34,6 +34,6 @@ spec:
               memory: 32Mi
           envFrom:
             - configMapRef:
-                name: rdb-config
+                name: coin-config
             - secretRef:
-                name: rdb-secrets
+                name: coin-secrets
