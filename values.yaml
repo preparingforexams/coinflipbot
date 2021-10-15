@@ -1,4 +1,4 @@
-image: ghcr.io/openalcoholics/coinflip:${GITHUB_SHA}
+image: ghcr.io/openalcoholics/coinflipbot:${GITHUB_SHA}
 telegram:
   chatId: "133399998"
   #chatId: "-1001491640081"

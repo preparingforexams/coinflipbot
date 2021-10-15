@@ -60,9 +60,9 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build the tagged Docker image
-        run: docker build -t ghcr.io/openalcoholics/coinflip:${GITHUB_SHA} --build-arg "build=${GITHUB_SHA}" .
+        run: docker build -t ghcr.io/openalcoholics/coinflipbot:${GITHUB_SHA} --build-arg "build=${GITHUB_SHA}" .
       - name: Push the tagged Docker image
-        run: docker push ghcr.io/openalcoholics/coinflip:${GITHUB_SHA}
+        run: docker push ghcr.io/openalcoholics/coinflipbot:${GITHUB_SHA}
 
   deploy:
     runs-on: ubuntu-latest
