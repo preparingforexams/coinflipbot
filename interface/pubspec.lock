@@ -456,13 +456,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.5"
-  timezone:
-    dependency: transitive
-    description:
-      name: timezone
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.8.0"
   timing:
     dependency: transitive
     description:
