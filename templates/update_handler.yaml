@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: telegram-bot
+  namespace: telegram-bots
   name: coin-update-handler
   labels:
     app: coin-update-handler
