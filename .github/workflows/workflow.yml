@@ -75,5 +75,5 @@ jobs:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
       - uses: WyriHaximus/github-action-helm3@v2
         with:
-          exec: helm upgrade coinflipper . --install --namespace=stammgaeste
+          exec: helm upgrade coinflipper . --install --namespace=telegram-bots
           kubeconfig: '${{ secrets.KUBECONFIG_RAW }}'
