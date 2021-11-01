@@ -24,8 +24,6 @@ spec:
       containers:
         - name: app
           image: {{ .Values.image }}
-          args:
-            - handle_updates
           resources:
             limits:
               cpu: 50m
@@ -33,7 +31,5 @@ spec:
               cpu: 5m
               memory: 32Mi
           envFrom:
-            - configMapRef:
-                name: coin-config
             - secretRef:
                 name: coin-secrets

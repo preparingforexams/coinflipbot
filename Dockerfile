@@ -1,22 +1,14 @@
-FROM dart:2.14 AS builder
-
-RUN apt-get update && apt-get install make && apt-get clean
+FROM python:3.10-slim
 
 WORKDIR /app
 
-COPY . .
-RUN pub get
+COPY requirements.txt .
 
-RUN make generate_all
+RUN pip install -r requirements.txt --no-cache
 
-RUN dart compile exe bin/main.dart -o rdb
-
-FROM scratch
-
-COPY --from=builder /runtime/ /
-COPY --from=builder /app/rdb /app/
+COPY coinbot.py .
 
 ARG build
 ENV BUILD_SHA=$build
 
-ENTRYPOINT [ "/app/rdb" ]
+CMD [ "python", "-m", "coinbot" ]

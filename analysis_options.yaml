@@ -1,6 +1,0 @@
-include: package:common_dev/lints.yaml
-
-linter:
-  rules:
-    - prefer_single_quotes
-    - sort_pub_dependencies

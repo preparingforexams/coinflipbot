@@ -1,7 +1,3 @@
 image: ghcr.io/openalcoholics/coinflipbot:${GITHUB_SHA}
 telegram:
-  chatId: "133399998"
-  #chatId: "-1001491640081"
   apiKey: ${TELEGRAM_TOKEN}
-schedule:
-  attendancePollHour: 13
