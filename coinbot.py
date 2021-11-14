@@ -5,6 +5,7 @@ import sys
 from typing import Callable, Optional, List
 
 import requests
+import sentry_sdk
 
 _API_KEY = os.getenv("TELEGRAM_API_KEY")
 
@@ -91,8 +92,25 @@ def _setup_logging():
     _LOG.level = logging.INFO
 
 
+def _setup_sentry():
+    dsn = os.getenv("SENTRY_DSN")
+    if not dsn:
+        _LOG.warning("Sentry DSN not found")
+        return
+
+    sentry_sdk.init(
+        dsn,
+
+        # Set traces_sample_rate to 1.0 to capture 100%
+        # of transactions for performance monitoring.
+        # We recommend adjusting this value in production.
+        traces_sample_rate=1.0
+    )
+
+
 def main():
     _setup_logging()
+    _setup_sentry()
 
     if not _API_KEY:
         _LOG.error("Missing API key")
