@@ -1,4 +1,4 @@
-image: ghcr.io/openalcoholics/coinflipbot:${GITHUB_SHA}
+image: ghcr.io/preparingforexams/coinflipbot:${GITHUB_SHA}
 telegram:
   apiKey: ${TELEGRAM_TOKEN}
 sentry:
