@@ -28,7 +28,7 @@ jobs:
         env:
           SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-      - uses: WyriHaximus/github-action-helm3@v2
+      - uses: WyriHaximus/github-action-helm3@v3
         with:
           exec: helm upgrade coinflipper . --install --namespace=telegram-bots
           kubeconfig: '${{ secrets.KUBECONFIG_RAW }}'
